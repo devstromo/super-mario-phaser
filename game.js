@@ -23,7 +23,10 @@ function preload() {
 }
 
 function create() {
-    this.add.image(0, 0, 'cloud1');
+    // image(x,y, id-assets)
+    this.add.image(0, 0, 'cloud1')
+        .setOrigin(0, 0) // set image origin coords, by default is in the center of the imagen (0.5, 0.5)
+        .setScale(0.15);
 }
 
 function update() {
