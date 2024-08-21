@@ -4,7 +4,7 @@ const config = {
     type: Phaser.AUTO, // webgl, canvas
     width: 256,
     height: 244,
-    backgroundColor: '#fff',
+    backgroundColor: '#049cd8',
     parent: 'game',
     scene: {
         preload, // precargar recursos del juego
