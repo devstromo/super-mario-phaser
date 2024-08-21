@@ -20,6 +20,12 @@ function preload() {
         'cloud1',
         'assets/scenery/overworld/cloud1.png'
     )
+
+    this.load.spritesheet(
+        'mario', // id
+        'assets/entities/mario.png',
+        { frameWidth: 18, frameHeight: 16 }
+    )
 }
 
 function create() {
@@ -27,6 +33,10 @@ function create() {
     this.add.image(100, 50, 'cloud1')
         .setOrigin(0.0, 0.0) // set image origin coords, by default is in the center of the imagen (0.5, 0.5)
         .setScale(0.15);
+
+    this.add.sprite(100, 100, 'mario')
+        .setOrigin(0, 1)
+
 }
 
 function update() {
