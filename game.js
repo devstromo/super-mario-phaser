@@ -16,13 +16,15 @@ const config = {
 new Phaser.Game(config)
 
 function preload() {
-    console.log('preload');
+    this.load.image(
+        'cloud1',
+        'assets/scenery/overworld/cloud1.png'
+    )
 }
 
 function create() {
-    console.log('create');
+    this.add.image(0, 0, 'cloud1');
 }
 
 function update() {
-    console.log('update');
 }
