@@ -55,7 +55,6 @@ function create() {
 
     this.mario = this.physics.add.sprite(50, 212, 'mario')
         .setOrigin(0, 1)
-        .setGravityY(300)
     this.anims.create({
         key: 'mario-walk',
         frames: this.anims.generateFrameNumbers(
