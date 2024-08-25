@@ -55,6 +55,12 @@ function create() {
         frameRate: 12,
         repeat: -1 // repeat forever
     })
+    this.anims.create({
+        key: 'mario-idle',
+        frames: [{ key: 'mario', frame: 0 }],
+        frameRate: 12,
+        repeat: -1 // repeat forever
+    })
 
     this.keys = this.input.keyboard.createCursorKeys()
 
@@ -69,6 +75,6 @@ function update() {
         this.mario.x += 2
         this.mario.anims.play('mario-walk', true)
     } else {
-
+        this.mario.anims.play('mario-idle', true)
     }
 }
