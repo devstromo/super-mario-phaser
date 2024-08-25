@@ -20,6 +20,10 @@ function preload() {
         'cloud1',
         'assets/scenery/overworld/cloud1.png'
     )
+    this.load.image(
+        'floorbricks',
+        'assets/scenery/overworld/floorbricks.png'
+    )
 
     this.load.spritesheet(
         'mario', // id
@@ -34,6 +38,7 @@ function create() {
         .setOrigin(0.0, 0.0) // set image origin coords, by default is in the center of the imagen (0.5, 0.5)
         .setScale(0.15);
 
+    this.add.tileSprite(0, config.height, config.width, 32, 'floorbricks')
     this.add.sprite(100, 100, 'mario')
         .setOrigin(0, 1)
 
