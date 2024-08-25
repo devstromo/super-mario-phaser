@@ -69,11 +69,13 @@ function create() {
 function update() {
 
     if (this.keys.left.isDown) {
+        this.mario.anims.play('mario-walk', true)
         this.mario.x -= 2
-        this.mario.anims.play('mario-walk', true)
+        this.mario.flipX = true
     } else if (this.keys.right.isDown) {
-        this.mario.x += 2
         this.mario.anims.play('mario-walk', true)
+        this.mario.x += 2
+        this.mario.flipX = false
     } else {
         this.mario.anims.play('mario-idle', true)
     }
