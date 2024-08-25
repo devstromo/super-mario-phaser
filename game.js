@@ -30,6 +30,7 @@ function preload() {
         'assets/entities/mario.png',
         { frameWidth: 18, frameHeight: 16 }
     )
+
 }
 
 function create() {
@@ -45,6 +46,15 @@ function create() {
     this.mario = this.add.sprite(50, 212, 'mario')
         .setOrigin(0, 1)
 
+    this.anims.create({
+        key: 'mario-walk',
+        frames: this.anims.generateFrameNumbers(
+            'mario',
+            { start: 0, end: 4, }
+        ),
+        frameRate: 12,
+        repeat: -1 // repeat forever
+    })
 
     this.keys = this.input.keyboard.createCursorKeys()
 
@@ -54,7 +64,11 @@ function update() {
 
     if (this.keys.left.isDown) {
         this.mario.x -= 2
+        this.mario.anims.play('mario-walk', true)
     } else if (this.keys.right.isDown) {
         this.mario.x += 2
+        this.mario.anims.play('mario-walk', true)
+    } else {
+
     }
 }
