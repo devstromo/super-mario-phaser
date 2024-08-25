@@ -50,7 +50,7 @@ function create() {
         key: 'mario-walk',
         frames: this.anims.generateFrameNumbers(
             'mario',
-            { start: 0, end: 4, }
+            { start: 3, end: 1, }
         ),
         frameRate: 12,
         repeat: -1 // repeat forever
