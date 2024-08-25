@@ -42,10 +42,19 @@ function create() {
         'floorbricks')
         .setOrigin(0, 0)
 
-    this.add.sprite(50, 212, 'mario')
+    this.mario = this.add.sprite(50, 212, 'mario')
         .setOrigin(0, 1)
+
+
+    this.keys = this.input.keyboard.createCursorKeys()
 
 }
 
 function update() {
+
+    if (this.keys.left.isDown) {
+        this.mario.x -= 2
+    } else if (this.keys.right.isDown) {
+        this.mario.x += 2
+    }
 }
