@@ -38,8 +38,10 @@ function create() {
         .setOrigin(0.0, 0.0) // set image origin coords, by default is in the center of the imagen (0.5, 0.5)
         .setScale(0.15);
 
-    this.add.tileSprite(0, config.height, config.width, 32, 'floorbricks')
-    this.add.sprite(100, 100, 'mario')
+    this.add.tileSprite(0, config.height - 16, config.width, 32,
+        'floorbricks')
+
+    this.add.sprite(50, 212, 'mario')
         .setOrigin(0, 1)
 
 }
