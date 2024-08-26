@@ -48,11 +48,11 @@ function create() {
 
     this.floor = this.physics.add.staticGroup()
 
-    this.floor.create(0, config.height - 32, 'floorbricks')
-        .setOrigin(0, 0)
+    this.floor.create(0, config.height - 16, 'floorbricks')
+        .setOrigin(0, 0.5)
 
-    this.floor.create(100, config.height - 32, 'floorbricks')
-        .setOrigin(0, 0)
+    this.floor.create(150, config.height - 16, 'floorbricks')
+        .setOrigin(0, 0.5)
 
     // this.mario = this.add.sprite(50, 212, 'mario')
     //     .setOrigin(0, 1)
