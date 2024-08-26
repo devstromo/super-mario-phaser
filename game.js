@@ -40,6 +40,8 @@ function preload() {
         { frameWidth: 18, frameHeight: 16 }
     )
 
+    this.load.audio('gameover', 'assets/sound/music/gameover.mp3');
+
 }
 
 function create() {
