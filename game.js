@@ -57,8 +57,12 @@ function create() {
     // this.mario = this.add.sprite(50, 212, 'mario')
     //     .setOrigin(0, 1)
 
-    this.mario = this.physics.add.sprite(50, 212, 'mario')
+    this.mario = this.physics.add.sprite(50, 100, 'mario')
         .setOrigin(0, 1)
+
+
+    this.physics.add.collider(this.mario, this.floor)
+
     this.anims.create({
         key: 'mario-walk',
         frames: this.anims.generateFrameNumbers(
