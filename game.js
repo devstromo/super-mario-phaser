@@ -61,7 +61,8 @@ function create() {
 
     this.mario = this.physics.add.sprite(50, 100, 'mario')
         .setOrigin(0, 1)
-        .setCollideWorldBounds(true);
+        .setCollideWorldBounds(true)
+        .setGravityY(500)
 
 
     this.physics.add.collider(this.mario, this.floor)
