@@ -102,9 +102,9 @@ function update() {
         this.mario.anims.play('mario-walk', true)
         this.mario.x += 2
         this.mario.flipX = false
-    } else if (this.keys.up.isDown) {
+    } else if (this.keys.up.isDown && this.mario.body.touching.down) {
+        this.mario.setVelocityY(-300)
         this.mario.anims.play('mario-jump', true)
-        this.mario.y += -5
     } else {
         this.mario.anims.play('mario-idle', true)
     }
