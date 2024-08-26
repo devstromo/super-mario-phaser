@@ -113,5 +113,9 @@ function update() {
         setTimeout(() => {
             this.mario.setVelocityY(-350);
         }, 100);
+
+        setTimeout(() => {
+            this.scene.restart()
+        }, 2000);
     }
 }
