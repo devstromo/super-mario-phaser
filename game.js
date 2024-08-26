@@ -105,5 +105,6 @@ function update() {
     if (this.mario.y >= config.height) {
         this.mario.isDead = true
         this.mario.anims.play('mario-dead', true)
+        this.mario.setCollideWorldBounds(false)
     }
 }
