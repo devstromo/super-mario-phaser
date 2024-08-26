@@ -50,9 +50,11 @@ function create() {
 
     this.floor.create(0, config.height - 16, 'floorbricks')
         .setOrigin(0, 0.5)
+        .refreshBody()
 
     this.floor.create(150, config.height - 16, 'floorbricks')
         .setOrigin(0, 0.5)
+        .refreshBody()
 
     // this.mario = this.add.sprite(50, 212, 'mario')
     //     .setOrigin(0, 1)
