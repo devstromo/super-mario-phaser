@@ -87,6 +87,10 @@ function create() {
 
 function update() {
 
+    if (this.mario.isDead) {
+        return
+    }
+
     if (this.keys.left.isDown) {
         this.mario.anims.play('mario-walk', true)
         this.mario.x -= 2
