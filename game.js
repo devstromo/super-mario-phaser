@@ -110,5 +110,8 @@ function update() {
         this.mario.isDead = true
         this.mario.anims.play('mario-dead', true)
         this.mario.setCollideWorldBounds(false)
+        setTimeout(() => {
+            this.mario.setVelocityY(-350);
+        }, 100);
     }
 }
