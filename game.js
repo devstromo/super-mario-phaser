@@ -64,8 +64,18 @@ function create() {
         .setCollideWorldBounds(true)
         .setGravityY(500)
 
+    this.physics.world
+        .setBounds(0, 0, 2000, config.height)
+
 
     this.physics.add.collider(this.mario, this.floor)
+
+
+    this.cameras.main
+        .setBounds(0, 0, 2000, config.height)
+
+    this.cameras.main
+        .startFollow(this.mario)
 
     this.anims.create({
         key: 'mario-walk',
