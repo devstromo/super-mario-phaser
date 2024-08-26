@@ -101,4 +101,9 @@ function update() {
     } else {
         this.mario.anims.play('mario-idle', true)
     }
+
+    if (this.mario.y >= config.height) {
+        this.mario.isDead = true
+        this.mario.anims.play('mario-dead', true)
+    }
 }
