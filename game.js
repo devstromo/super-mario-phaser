@@ -1,5 +1,7 @@
 /* global Phaser */
 
+import { createAnimations } from "./animations.js"
+
 const config = {
     type: Phaser.AUTO, // webgl, canvas
     width: 256,
@@ -77,28 +79,8 @@ function create() {
     this.cameras.main
         .startFollow(this.mario)
 
-    this.anims.create({
-        key: 'mario-walk',
-        frames: this.anims.generateFrameNumbers(
-            'mario',
-            { start: 3, end: 1, }
-        ),
-        frameRate: 12,
-        repeat: -1 // repeat forever
-    })
-    this.anims.create({
-        key: 'mario-idle',
-        frames: [{ key: 'mario', frame: 0 }],
-        frameRate: 12,
-        repeat: -1 // repeat forever
-    })
+    createAnimations(this)
 
-    this.anims.create({
-        key: 'mario-jump',
-        frames: [{ key: 'mario', frame: 5 }],
-        frameRate: 12,
-        repeat: -1 // repeat forever
-    })
     this.keys = this.input.keyboard.createCursorKeys()
 
 }
