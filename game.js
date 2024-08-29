@@ -82,6 +82,7 @@ function create() {
         .setGravityY(300)
         .setVelocityX(-50)
 
+
     this.physics.world
         .setBounds(0, 0, 2000, config.height)
 
@@ -101,6 +102,8 @@ function create() {
         .startFollow(this.mario)
 
     createAnimations(this)
+
+    this.enemy.anims.play('goomba-walk', true)
 
     this.keys = this.input.keyboard.createCursorKeys()
 
