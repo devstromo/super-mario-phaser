@@ -42,6 +42,12 @@ function preload() {
         { frameWidth: 18, frameHeight: 16 }
     )
 
+    this.load.spritesheet(
+        'goomba',
+        'assets/entities/overworld/goomba.png',
+        { frameWidth: 16, frameHeight: 16 }
+    )
+
     this.load.audio('gameover', 'assets/sound/music/gameover.mp3');
 
 }
@@ -68,13 +74,21 @@ function create() {
     this.mario = this.physics.add.sprite(50, 100, 'mario')
         .setOrigin(0, 1)
         .setCollideWorldBounds(true)
-        .setGravityY(500)
+        .setGravityY(300)
+
+    this.enemy = this.physics.add.sprite(120, config.height - 30, 'goomba')
+        .setOrigin(0, 1)
+        .setCollideWorldBounds(true)
+        .setGravityY(300)
+        .setVelocityX(-50)
 
     this.physics.world
         .setBounds(0, 0, 2000, config.height)
 
 
     this.physics.add.collider(this.mario, this.floor)
+
+    this.physics.add.collider(this.enemy, this.floor)
 
 
     this.cameras.main
