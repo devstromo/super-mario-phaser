@@ -97,9 +97,8 @@ function update() {
     const isRightKeyDown = keys.right.isDown
     const isUpKeyDown = keys.up.isDown
 
-    if (mario.isDead) {
-        return
-    }
+    if (mario.isDead) return
+
 
     if (isLeftKeyDown) {
         isMarioTouchingFloor && mario.anims.play('mario-walk', true)
