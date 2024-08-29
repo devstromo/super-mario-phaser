@@ -91,6 +91,9 @@ function create() {
     this.physics.add.collider(this.enemy, this.floor)
 
 
+    this.physics.add.collider(this.mario, this.enemy, onHitEnemy)
+
+
     this.cameras.main
         .setBounds(0, 0, 2000, config.height)
 
@@ -115,11 +118,20 @@ function update() {
         mario.setCollideWorldBounds(false)
         sound.add('gameover', { volume: 0.2 }).play()
         setTimeout(() => {
-            mario.setVelocityY(-350);
+            mario.setVelocityY(-200);
         }, 100);
 
         setTimeout(() => {
             scene.restart()
         }, 2000);
+    }
+}
+
+function onHitEnemy(mario, enemy) {
+    if (mario.body.touching.down && enemy.body.touching.up) {
+        enemy.destroy()
+        mario.setVelocityY(-350);
+    } else {
+        // mario death
     }
 }
