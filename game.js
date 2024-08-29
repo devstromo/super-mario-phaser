@@ -1,6 +1,7 @@
 /* global Phaser */
 
 import { createAnimations } from "./animations.js"
+import { checkControls } from "./controls.js"
 
 const config = {
     autoFocus: false,
@@ -89,32 +90,11 @@ function create() {
 }
 
 function update() {
-    const { keys, mario } = this
 
-    const isMarioTouchingFloor = mario.body.touching.down
+    checkControls(this)
+    const { mario, sound, scene } = this
 
-    const isLeftKeyDown = keys.left.isDown
-    const isRightKeyDown = keys.right.isDown
-    const isUpKeyDown = keys.up.isDown
-
-    if (mario.isDead) return
-
-
-    if (isLeftKeyDown) {
-        isMarioTouchingFloor && mario.anims.play('mario-walk', true)
-        mario.x -= 2
-        mario.flipX = true
-    } else if (isRightKeyDown) {
-        isMarioTouchingFloor && mario.anims.play('mario-walk', true)
-        mario.x += 2
-        mario.flipX = false
-    } else if (isUpKeyDown && isMarioTouchingFloor) {
-        mario.setVelocityY(-300)
-        mario.anims.play('mario-jump', true)
-    } else if (isMarioTouchingFloor) {
-        mario.anims.play('mario-idle', true)
-    }
-
+    // death check
     if (mario.y >= config.height) {
         mario.isDead = true
         mario.anims.play('mario-dead', true)
@@ -125,7 +105,7 @@ function update() {
         }, 100);
 
         setTimeout(() => {
-            this.scene.restart()
+            scene.restart()
         }, 2000);
     }
 }
