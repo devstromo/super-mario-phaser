@@ -102,11 +102,11 @@ function update() {
     }
 
     if (isLeftKeyDown) {
-        mario.anims.play('mario-walk', true)
+        isMarioTouchingFloor && mario.anims.play('mario-walk', true)
         mario.x -= 2
         mario.flipX = true
     } else if (isRightKeyDown) {
-        mario.anims.play('mario-walk', true)
+        isMarioTouchingFloor && mario.anims.play('mario-walk', true)
         mario.x += 2
         mario.flipX = false
     } else if (isUpKeyDown && isMarioTouchingFloor) {
