@@ -3,6 +3,7 @@
 import { createAnimations } from "./animations.js"
 
 const config = {
+    autoFocus: false,
     type: Phaser.AUTO, // webgl, canvas
     width: 256,
     height: 244,
@@ -104,7 +105,7 @@ function update() {
     } else if (this.keys.up.isDown && this.mario.body.touching.down) {
         this.mario.setVelocityY(-300)
         this.mario.anims.play('mario-jump', true)
-    } else {
+    } else if (this.mario.body.touching.down) {
         this.mario.anims.play('mario-idle', true)
     }
 
