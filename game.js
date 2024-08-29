@@ -91,22 +91,28 @@ function create() {
 function update() {
     const { keys, mario } = this
 
+    const isMarioTouchingFloor = mario.body.touching.down
+
+    const isLeftKeyDown = keys.left.isDown
+    const isRightKeyDown = keys.right.isDown
+    const isUpKeyDown = keys.up.isDown
+
     if (mario.isDead) {
         return
     }
 
-    if (keys.left.isDown) {
+    if (isLeftKeyDown) {
         mario.anims.play('mario-walk', true)
         mario.x -= 2
         mario.flipX = true
-    } else if (keys.right.isDown) {
+    } else if (isRightKeyDown) {
         mario.anims.play('mario-walk', true)
         mario.x += 2
         mario.flipX = false
-    } else if (keys.up.isDown && mario.body.touching.down) {
+    } else if (isUpKeyDown && isMarioTouchingFloor) {
         mario.setVelocityY(-300)
         mario.anims.play('mario-jump', true)
-    } else if (mario.body.touching.down) {
+    } else if (isMarioTouchingFloor) {
         mario.anims.play('mario-idle', true)
     }
 
