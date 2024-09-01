@@ -46,6 +46,7 @@ function preload() {
 }
 
 function create() {
+    createAnimations(this)
     // image(x,y, id-assets)
     this.add.image(100, 50, 'cloud1')
         .setOrigin(0.0, 0.0) // set image origin coords, by default is in the center of the imagen (0.5, 0.5)
@@ -75,6 +76,9 @@ function create() {
         .setGravityY(300)
         .setVelocityX(-50)
 
+    this.coins = this.physics.add.staticGroup()
+
+    this.coins.create(150, 150, 'coin').anims.play('coin-idle', true)
 
     this.physics.world
         .setBounds(0, 0, 2000, config.height)
@@ -94,7 +98,7 @@ function create() {
     this.cameras.main
         .startFollow(this.mario)
 
-    createAnimations(this)
+
 
     this.enemy.anims.play('goomba-walk', true)
 
