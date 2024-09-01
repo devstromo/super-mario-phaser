@@ -132,8 +132,12 @@ function update() {
 
 function onHitEnemy(mario, enemy) {
     if (mario.body.touching.down && enemy.body.touching.up) {
-        enemy.destroy()
-        mario.setVelocityY(-350);
+        enemy.anims.play('goomba-hurt', true)
+        enemy.setVelocityX(0)
+        setTimeout(() => {
+            enemy.destroy()
+        }, 500);
+        mario.setVelocityY(-200);
     } else {
         // mario death
     }

@@ -34,4 +34,9 @@ export const createAnimations = (game) => {
         frameRate: 12,
         repeat: -1
     })
+
+    game.anims.create({
+        key: 'goomba-hurt',
+        frames: [{ key: 'goomba', frame: 2 }]
+    })
 }
