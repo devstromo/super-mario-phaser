@@ -118,17 +118,7 @@ function update() {
 
     // death check
     if (mario.y >= config.height) {
-        mario.isDead = true
-        mario.anims.play('mario-dead', true)
-        mario.setCollideWorldBounds(false)
-        playAudio('gameover', this, { volume: 0.2 })
-        setTimeout(() => {
-            mario.setVelocityY(-200);
-        }, 100);
-
-        setTimeout(() => {
-            scene.restart()
-        }, 2000);
+        killMario(this)
     }
 }
 
@@ -143,5 +133,25 @@ function onHitEnemy(mario, enemy) {
         mario.setVelocityY(-200);
     } else {
         // mario death
+        killMario(this)
     }
+}
+
+function killMario(game) {
+    const { mario, scene } = game
+
+    if (mario.isDead) return
+
+    mario.isDead = true
+    mario.anims.play('mario-dead', true)
+    mario.setCollideWorldBounds(false)
+
+    playAudio('gameover', game, { volume: 0.2 })
+    setTimeout(() => {
+        mario.setVelocityY(-200);
+    }, 100);
+
+    setTimeout(() => {
+        scene.restart()
+    }, 2000);
 }
