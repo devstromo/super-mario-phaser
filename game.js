@@ -75,10 +75,13 @@ function create() {
         .setCollideWorldBounds(true)
         .setGravityY(300)
         .setVelocityX(-50)
+    this.enemy.anims.play('goomba-walk', true)
+
 
     this.coins = this.physics.add.staticGroup()
 
     this.coins.create(150, 150, 'coin').anims.play('coin-idle', true)
+    this.coins.create(300, 150, 'coin').anims.play('coin-idle', true)
 
     this.physics.world
         .setBounds(0, 0, 2000, config.height)
@@ -100,7 +103,6 @@ function create() {
 
 
 
-    this.enemy.anims.play('goomba-walk', true)
 
     this.keys = this.input.keyboard.createCursorKeys()
 
