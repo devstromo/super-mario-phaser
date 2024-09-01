@@ -7,6 +7,10 @@ const INIT_AUDIOS = [
         key: 'goomba-stomp',
         path: 'assets/sound/effects/goomba-stomp.wav',
     },
+    {
+        key: 'coin-pickup',
+        path: 'assets/sound/effects/coin.mp3',
+    },
 ]
 
 export const initAudio = ({ load }) => {

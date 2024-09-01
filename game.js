@@ -156,5 +156,6 @@ function killMario(game) {
 }
 
 function collectCoin(mario, coin) {
-    coin.destroy()
+    coin.disableBody(true, true)
+    playAudio('coin-pickup', this, { volume: 0.2 })
 }
