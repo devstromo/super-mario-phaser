@@ -3,6 +3,7 @@
 import { createAnimations } from "./animations.js"
 import { initAudio, playAudio } from "./audio.js"
 import { checkControls } from "./controls.js"
+import { initSpritesheet } from "./spritesheet.js"
 
 const config = {
     autoFocus: false,
@@ -37,17 +38,7 @@ function preload() {
         'assets/scenery/overworld/floorbricks.png'
     )
 
-    this.load.spritesheet(
-        'mario', // id
-        'assets/entities/mario.png',
-        { frameWidth: 18, frameHeight: 16 }
-    )
-
-    this.load.spritesheet(
-        'goomba',
-        'assets/entities/overworld/goomba.png',
-        { frameWidth: 16, frameHeight: 16 }
-    )
+    initSpritesheet(this)
 
     //--- audio ---
     initAudio(this)
