@@ -1,7 +1,7 @@
 /* global Phaser */
 
 import { createAnimations } from "./animations.js"
-import { initAudio } from "./audio.js"
+import { initAudio, playAudio } from "./audio.js"
 import { checkControls } from "./controls.js"
 
 const config = {
@@ -114,14 +114,14 @@ function create() {
 function update() {
 
     checkControls(this)
-    const { mario, sound, scene } = this
+    const { mario, scene } = this
 
     // death check
     if (mario.y >= config.height) {
         mario.isDead = true
         mario.anims.play('mario-dead', true)
         mario.setCollideWorldBounds(false)
-        sound.add('gameover', { volume: 0.2 }).play()
+        playAudio('gameover', this, { volume: 0.2 })
         setTimeout(() => {
             mario.setVelocityY(-200);
         }, 100);
@@ -136,7 +136,7 @@ function onHitEnemy(mario, enemy) {
     if (mario.body.touching.down && enemy.body.touching.up) {
         enemy.anims.play('goomba-hurt', true)
         enemy.setVelocityX(0)
-        this.sound.play('goomba-stomp')
+        playAudio('goomba-stomp', this)
         setTimeout(() => {
             enemy.destroy()
         }, 500);
