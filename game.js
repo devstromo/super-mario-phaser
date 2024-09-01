@@ -48,7 +48,11 @@ function preload() {
         { frameWidth: 16, frameHeight: 16 }
     )
 
-    this.load.audio('gameover', 'assets/sound/music/gameover.mp3');
+    //--- audio ---
+    this.load.audio('gameover', 'assets/sound/music/gameover.mp3')
+
+
+    this.load.audio('goomba-stomp', 'assets/sound/effects/goomba-stomp.wav')
 
 }
 
@@ -92,7 +96,7 @@ function create() {
     this.physics.add.collider(this.enemy, this.floor)
 
 
-    this.physics.add.collider(this.mario, this.enemy, onHitEnemy)
+    this.physics.add.collider(this.mario, this.enemy, onHitEnemy, null, this)
 
 
     this.cameras.main
@@ -134,6 +138,7 @@ function onHitEnemy(mario, enemy) {
     if (mario.body.touching.down && enemy.body.touching.up) {
         enemy.anims.play('goomba-hurt', true)
         enemy.setVelocityX(0)
+        this.sound.play('goomba-stomp')
         setTimeout(() => {
             enemy.destroy()
         }, 500);
