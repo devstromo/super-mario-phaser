@@ -1,6 +1,7 @@
 /* global Phaser */
 
 import { createAnimations } from "./animations.js"
+import { initAudio } from "./audio.js"
 import { checkControls } from "./controls.js"
 
 const config = {
@@ -49,10 +50,7 @@ function preload() {
     )
 
     //--- audio ---
-    this.load.audio('gameover', 'assets/sound/music/gameover.mp3')
-
-
-    this.load.audio('goomba-stomp', 'assets/sound/effects/goomba-stomp.wav')
+    initAudio(this)
 
 }
 
