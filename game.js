@@ -158,21 +158,25 @@ function killMario(game) {
 function collectCoin(mario, coin) {
     coin.disableBody(true, true)
     playAudio('coin-pickup', this, { volume: 0.2 })
-    const scoreText = this.add.text(
-        coin.x,
-        coin.y,
-        100,
+    addToScore(100, coin, this)
+}
+
+function addToScore(scoreToAdd, origin, game) {
+    const scoreText = game.add.text(
+        origin.x,
+        origin.y,
+        scoreToAdd,
         {
             fontFamily: 'pixel',
             fontSize: config.width / 40,
         }
     )
-    this.tweens.add({
+    game.tweens.add({
         targets: scoreText,
         duration: 500,
         y: scoreText.y - 20,
         onComplete: () => {
-            this.tweens.add({
+            game.tweens.add({
                 targets: scoreText,
                 duration: 100,
                 alpha: 0,
