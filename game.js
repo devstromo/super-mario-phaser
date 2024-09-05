@@ -78,12 +78,12 @@ function create() {
     this.enemy.anims.play('goomba-walk', true)
 
 
-    this.coins = this.physics.add.staticGroup()
+    this.collectibles = this.physics.add.staticGroup()
 
-    this.coins.create(150, 150, 'coin').anims.play('coin-idle', true)
-    this.coins.create(300, 150, 'coin').anims.play('coin-idle', true)
+    this.collectibles.create(150, 150, 'coin').anims.play('coin-idle', true)
+    this.collectibles.create(300, 150, 'coin').anims.play('coin-idle', true)
 
-    this.physics.add.overlap(this.mario, this.coins, collectCoin, null, this)
+    this.physics.add.overlap(this.mario, this.collectibles, collectItem, null, this)
 
     this.physics.world
         .setBounds(0, 0, 2000, config.height)
@@ -156,10 +156,15 @@ function killMario(game) {
     }, 2000);
 }
 
-function collectCoin(mario, coin) {
-    coin.disableBody(true, true)
-    playAudio('coin-pickup', this, { volume: 0.2 })
-    addToScore(100, coin, this)
+function collectItem(mario, item) {
+    if (item.texture.key === 'coin') {
+        item.destroy()
+        playAudio('coin-pickup', this, { volume: 0.2 })
+        addToScore(100, item, this)
+    } else {
+        console.log('other item');
+    }
+
 }
 
 function addToScore(scoreToAdd, origin, game) {
