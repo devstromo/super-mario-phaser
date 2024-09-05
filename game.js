@@ -164,7 +164,7 @@ function collectCoin(mario, coin) {
         100,
         {
             fontFamily: 'pixel',
-            fontSize: config.width / 25,
+            fontSize: config.width / 40,
         }
     )
 }
