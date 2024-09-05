@@ -126,6 +126,7 @@ function onHitEnemy(mario, enemy) {
         enemy.anims.play('goomba-hurt', true)
         enemy.setVelocityX(0)
         playAudio('goomba-stomp', this)
+        addToScore(200, mario, this)
         setTimeout(() => {
             enemy.destroy()
         }, 500);
