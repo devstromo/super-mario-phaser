@@ -158,4 +158,13 @@ function killMario(game) {
 function collectCoin(mario, coin) {
     coin.disableBody(true, true)
     playAudio('coin-pickup', this, { volume: 0.2 })
+    this.add.text(
+        coin.x,
+        coin.y,
+        100,
+        {
+            fontFamily: 'pixel',
+            fontSize: config.width / 25,
+        }
+    )
 }
