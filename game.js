@@ -33,9 +33,15 @@ function preload() {
         'cloud1',
         'assets/scenery/overworld/cloud1.png'
     )
+
     this.load.image(
         'floorbricks',
         'assets/scenery/overworld/floorbricks.png'
+    )
+
+    this.load.image(
+        'supermushroom',
+        'assets/collectibles/super-mushroom.png'
     )
 
     initSpritesheet(this)
@@ -82,6 +88,9 @@ function create() {
 
     this.collectibles.create(150, 150, 'coin').anims.play('coin-idle', true)
     this.collectibles.create(300, 150, 'coin').anims.play('coin-idle', true)
+
+    this.collectibles.create(200, config.height - 40, 'supermushroom')
+        .anims.play('supermushroom-idle', true)
 
     this.physics.add.overlap(this.mario, this.collectibles, collectItem, null, this)
 
@@ -157,10 +166,13 @@ function killMario(game) {
 }
 
 function collectItem(mario, item) {
-    if (item.texture.key === 'coin') {
+    const { texture: { key } } = item
+    if (key === 'coin') {
         item.destroy()
         playAudio('coin-pickup', this, { volume: 0.2 })
         addToScore(100, item, this)
+    } else if (key === 'supermushroom') {
+
     } else {
         console.log('other item');
     }
