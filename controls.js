@@ -20,6 +20,7 @@ export function checkControls({ mario, keys }) {
     const isUpKeyDown = keys.up.isDown
 
     if (mario.isDead) return
+    if (mario.isBlocked) return
 
     const marioAnimations = mario.isGrown ? MARIO_ANIMATIONS.grown : MARIO_ANIMATIONS.normal
 

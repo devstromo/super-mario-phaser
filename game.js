@@ -175,8 +175,8 @@ function collectItem(mario, item) {
         this.physics.world.pause()
         this.anims.pauseAll()
 
-        mario.isBlock = true
-
+        mario.isBlocked = true
+        playAudio('powerup', this)
         let i = 0;
         const interval = setInterval(() => {
             mario.anims.play(i % 2 === 0 ?
@@ -188,6 +188,7 @@ function collectItem(mario, item) {
         }, 100)
         setTimeout(() => {
             mario.isGrown = true
+            mario.isBlocked = false
             clearInterval(interval)
             this.physics.world.resume()
             this.anims.resumeAll()
