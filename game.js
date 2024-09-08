@@ -167,12 +167,14 @@ function killMario(game) {
 
 function collectItem(mario, item) {
     const { texture: { key } } = item
+    item.destroy()
     if (key === 'coin') {
-        item.destroy()
         playAudio('coin-pickup', this, { volume: 0.2 })
         addToScore(100, item, this)
     } else if (key === 'supermushroom') {
-
+        this.physics.world.pause()
+        this.anims.pauseAll()
+        mario.anims.play('mario-grown-idle', true)
     } else {
         console.log('other item');
     }
