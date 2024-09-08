@@ -176,7 +176,7 @@ function collectItem(mario, item) {
         this.anims.pauseAll()
 
         playAudio('powerup', this, { volume: 0.1 })
-        
+
         let i = 0;
         const interval = setInterval(() => {
             i++
@@ -186,15 +186,15 @@ function collectItem(mario, item) {
                 true
             )
         }, 100)
-        
+
         mario.isBlocked = true
         mario.isGrown = true
-        
-        
+
+
         setTimeout(() => {
             mario.setDisplaySize(18, 32)
             mario.body.setSize(18, 32)
-            
+
             this.anims.resumeAll()
             mario.isBlocked = false
             clearInterval(interval)

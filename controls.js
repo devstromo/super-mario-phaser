@@ -18,6 +18,7 @@ export function checkControls({ mario, keys }) {
     const isLeftKeyDown = keys.left.isDown
     const isRightKeyDown = keys.right.isDown
     const isUpKeyDown = keys.up.isDown
+    const isDownKeyDown = keys.down.isDown
 
     if (mario.isDead) return
     if (mario.isBlocked) return
@@ -35,6 +36,8 @@ export function checkControls({ mario, keys }) {
     } else if (isUpKeyDown && isMarioTouchingFloor) {
         mario.setVelocityY(-300)
         mario.anims.play(marioAnimations.jump, true)
+    } else if (mario.isGrown && isDownKeyDown && isMarioTouchingFloor) {
+        mario.anims.play('mario-grown-crouched', true)
     } else if (isMarioTouchingFloor) {
         mario.anims.play(marioAnimations.idle, true)
     }
