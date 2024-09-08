@@ -34,7 +34,7 @@ export function checkControls({ mario, keys }) {
         mario.flipX = false
     } else if (isUpKeyDown && isMarioTouchingFloor) {
         mario.setVelocityY(-300)
-        mario.anims.play('mario-jump', true)
+        mario.anims.play(marioAnimations.jump, true)
     } else if (isMarioTouchingFloor) {
         mario.anims.play(marioAnimations.idle, true)
     }
