@@ -175,23 +175,30 @@ function collectItem(mario, item) {
         this.physics.world.pause()
         this.anims.pauseAll()
 
-        mario.isBlocked = true
         playAudio('powerup', this, { volume: 0.1 })
+        
         let i = 0;
         const interval = setInterval(() => {
+            i++
             mario.anims.play(i % 2 === 0 ?
                 'mario-grown-idle'
                 : 'mario-idle',
                 true
             )
-            i++
         }, 100)
+        
+        mario.isBlocked = true
+        mario.isGrown = true
+        
+        
         setTimeout(() => {
-            mario.isGrown = true
+            mario.setDisplaySize(18, 32)
+            mario.body.setSize(18, 32)
+            
+            this.anims.resumeAll()
             mario.isBlocked = false
             clearInterval(interval)
             this.physics.world.resume()
-            this.anims.resumeAll()
         }, 1000);
     } else {
         console.log('other item');
