@@ -176,7 +176,7 @@ function collectItem(mario, item) {
         this.anims.pauseAll()
 
         mario.isBlocked = true
-        playAudio('powerup', this)
+        playAudio('powerup', this, { volume: 0.1 })
         let i = 0;
         const interval = setInterval(() => {
             mario.anims.play(i % 2 === 0 ?
